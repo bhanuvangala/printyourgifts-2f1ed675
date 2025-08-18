@@ -4,6 +4,7 @@ import { ShoppingCart, Menu, X, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useCart } from '@/hooks/useCart';
+import logoImage from '@/assets/logo.png';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,9 +35,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">P</span>
-            </div>
+            <img 
+              src={logoImage} 
+              alt="PrintYourGifts Logo" 
+              className="w-8 h-8 rounded-lg object-contain"
+            />
             <span className="text-xl font-bold text-primary">PrintYourGifts</span>
           </Link>
 
