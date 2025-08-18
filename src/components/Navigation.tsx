@@ -4,7 +4,7 @@ import { ShoppingCart, Menu, X, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useCart } from '@/hooks/useCart';
-import logoImage from '@/assets/logo.png';
+import floralLogo from '@/assets/floral-logo.png';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -36,7 +36,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src={logoImage} 
+              src={floralLogo} 
               alt="PrintYourGifts Logo" 
               className="w-8 h-8 rounded-lg object-contain"
             />
