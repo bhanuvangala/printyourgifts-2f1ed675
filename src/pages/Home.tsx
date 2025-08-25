@@ -4,6 +4,7 @@ import { ChevronRight, Gift, Truck, Shield, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProductCard from '@/components/ProductCard';
 import { featuredProducts } from '@/data/products';
+import heroBackground from '@/assets/hero-background.jpg';
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,34 +24,43 @@ const Home = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-hero text-primary-foreground py-20 md:py-32">
+      <section 
+        className="relative min-h-screen flex items-center justify-center text-white"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${heroBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container mx-auto px-4 text-center">
           <div className={`fade-in ${isVisible ? 'visible' : ''}`} style={{ transitionDelay: '200ms' }}>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Turn Your Memories Into<br />
-              <span className="text-accent">Beautiful Gifts</span>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
+              Print Your Love
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 max-w-3xl mx-auto">
-              Personalize mugs, t-shirts, frames & more with your photos. 
-              Premium quality printing with fast delivery across India.
+            <p className="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto">
+              Create personalized gifts that bring smiles to faces and warmth to hearts.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/shop">
-                <Button size="lg" className="btn-gold text-lg px-8 py-4">
+                <Button 
+                  size="lg" 
+                  className="bg-primary text-white px-8 py-4 text-lg rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:bg-primary/90 shadow-lg"
+                >
                   Shop Now
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8 py-4 rounded-full border-2 border-white text-white bg-transparent font-semibold transition-all duration-300 hover:bg-white hover:text-primary hover:shadow-glow"
+              >
                 Learn More
               </Button>
             </div>
           </div>
         </div>
-        
-        {/* Decorative Elements */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-accent/20 rounded-full blur-xl"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-accent/10 rounded-full blur-2xl"></div>
       </section>
 
       {/* Features Section */}
