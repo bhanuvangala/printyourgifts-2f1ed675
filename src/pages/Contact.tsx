@@ -84,7 +84,6 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Enter your full name"
-                    className="fade-in"
                   />
                 </div>
                 
@@ -100,8 +99,6 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="Enter your email address"
-                    className="fade-in"
-                    style={{ transitionDelay: '100ms' }}
                   />
                 </div>
                 
@@ -117,8 +114,6 @@ const Contact = () => {
                     onChange={handleInputChange}
                     placeholder="Tell us how we can help you..."
                     rows={6}
-                    className="fade-in"
-                    style={{ transitionDelay: '200ms' }}
                   />
                 </div>
                 
