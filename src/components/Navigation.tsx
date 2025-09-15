@@ -3,7 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart, Menu, X, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useCart } from '@/hooks/useCart';
+//import { useCart } from '@/hooks/useCart';
+import { useCart } from '@/context/CartContext';
 import floralLogo from '@/assets/floral-logo.png';
 
 const Navigation = () => {

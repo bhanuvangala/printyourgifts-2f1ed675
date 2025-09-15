@@ -27,17 +27,6 @@ const Footer = () => {
               Transform your precious memories into beautiful personalized gifts. 
               High-quality printing with fast delivery across India.
             </p>
-            <div className="flex space-x-3">
-              <a href="#" className="text-white/60 hover:text-accent transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-white/60 hover:text-accent transition-colors">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-white/60 hover:text-accent transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-            </div>
           </div>
 
           <div>
@@ -85,7 +74,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-8 pt-8 text-center">
           <p className="text-white/60 text-sm">
-            © 2024 <span className="font-semibold text-accent">PrintYourGifts</span>. All rights reserved.
+            © 2025 <span className="font-semibold text-accent">PrintYourGifts</span>. All rights reserved.
           </p>
         </div>
       </div>

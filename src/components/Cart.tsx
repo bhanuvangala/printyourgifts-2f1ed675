@@ -1,6 +1,7 @@
 import { X, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useCart } from '@/hooks/useCart';
+//import { useCart } from '@/hooks/useCart';
+import { useCart } from '@/context/CartContext';
 
 const Cart = () => {
   const { items, isOpen, closeCart, updateQuantity, removeFromCart, getTotalPrice } = useCart();
