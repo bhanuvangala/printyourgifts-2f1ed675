@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Heart, Users, Award, Clock } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Link } from "react-router-dom";
 
 const About = () => {
@@ -27,19 +26,16 @@ const About = () => {
       name: 'Rajesh Patel',
       role: 'Founder & CEO',
       bio: 'Passionate about technology and customer satisfaction. 10+ years in printing industry.',
-      img: '/team/rajesh.jpg',
     },
     {
       name: 'Priya Sharma',
       role: 'Design Director',
       bio: 'Creative designer with expertise in personalization and visual storytelling.',
-      img: '/team/priya.jpg',
     },
     {
       name: 'Amit Kumar',
       role: 'Quality Manager',
       bio: 'Ensures every product meets our high standards before reaching customers.',
-      img: '/team/amit.jpg',
     },
   ];
 
@@ -90,7 +86,7 @@ const About = () => {
                 </p>
               </div>
               <div className="fade-in">
-                <div className="bg-gradient-to-br from-primary to-primary-glow rounded-2xl p-8 text-primary-foreground">
+                <div className="bg-gradient-to-br from-primary to-primary-glow rounded-2xl p-8 text-primary-foreground shadow-lg hover:scale-[1.02] transition">
                   <h4 className="text-xl font-semibold mb-4">Our Promise</h4>
                   <ul className="space-y-2">
                     <li>✨ Premium quality materials</li>
@@ -123,10 +119,10 @@ const About = () => {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="fade-in text-center hover:-translate-y-1 hover:shadow-lg transition rounded-xl p-4 bg-background"
+                className="fade-in text-center hover:-translate-y-1 hover:shadow-xl hover:scale-105 transition rounded-xl p-6 bg-background border border-border"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
                   <stat.icon className="h-8 w-8 text-primary-foreground" />
                 </div>
                 <div className="text-3xl font-bold text-primary mb-2">
@@ -156,28 +152,14 @@ const About = () => {
             {team.map((member, index) => (
               <div
                 key={index}
-                className="fade-in text-center hover:-translate-y-1 hover:shadow-lg transition rounded-xl p-6 bg-background border border-border"
+                className="fade-in text-center hover:-translate-y-1 hover:shadow-2xl hover:scale-105 transition rounded-xl p-6 bg-gradient-to-br from-background to-muted border border-border"
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                {member.img ? (
-                  <img
-                    src={member.img}
-                    alt={member.name}
-                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                  />
-                ) : (
-                  <div className="w-32 h-32 bg-gradient-hero rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-primary-foreground">
-                      {member.name
-                        .split(' ')
-                        .map((n) => n[0])
-                        .join('')}
-                    </span>
-                  </div>
-                )}
                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
                 <p className="text-primary font-medium mb-3">{member.role}</p>
-                <p className="text-muted-foreground text-sm">{member.bio}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {member.bio}
+                </p>
               </div>
             ))}
           </div>
@@ -211,7 +193,7 @@ const About = () => {
             ].map((value, index) => (
               <div
                 key={index}
-                className="fade-in text-center hover:-translate-y-1 hover:shadow-md transition"
+                className="fade-in text-center hover:-translate-y-1 hover:shadow-xl hover:scale-105 transition"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="bg-background p-6 rounded-xl shadow-sm border border-border">
@@ -225,113 +207,111 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-<section className="py-12 md:py-20 bg-gradient-hero text-primary-foreground text-center">
-  <div className="container mx-auto px-4">
-    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-      Ready to Create Something Special?
-    </h2>
-    <p className="text-xl mb-8 text-primary-foreground/90">
-      Join our community of satisfied customers and start creating your
-      personalized gifts today
-    </p>
+      <section className="py-12 md:py-20 bg-gradient-hero text-primary-foreground text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Create Something Special?
+          </h2>
+          <p className="text-xl mb-8 text-primary-foreground/90">
+            Join our community of satisfied customers and start creating your
+            personalized gifts today
+          </p>
 
-    {/* ✅ Scoped Styles */}
-    <style>
-      {`
-        .btn-3 {
-          background: linear-gradient(0deg, rgba(238, 0, 0, 1) 0%, rgba(251, 27, 2, 1) 100%);
-          width: 160px;
-          height: 50px;
-          line-height: 50px;
-          border: none;
-          border-radius: 12px;
-          cursor: pointer;
-          position: relative;
-          overflow: hidden;
-          color: #fff;
-          font-weight: 600;
-          font-size: 16px;
-          transition: all 0.3s ease;
-        }
-        .btn-3 span {
-          position: relative;
-          display: block;
-          width: 100%;
-          height: 100%;
-        }
-        .btn-3:before,
-        .btn-3:after {
-          position: absolute;
-          content: "";
-          right: 0;
-          top: 0;
-          background: rgba(2, 251, 48, 1);
-          transition: all 0.3s ease;
-        }
-        .btn-3:before {
-          height: 0%;
-          width: 2px;
-        }
-        .btn-3:after {
-          width: 0%;
-          height: 2px;
-        }
-        .btn-3:hover {
-          background: transparent;
-          box-shadow: 0 0 15px rgba(6, 251, 2, 0.6);
-        }
-        .btn-3:hover:before {
-          height: 100%;
-        }
-        .btn-3:hover:after {
-          width: 100%;
-        }
-        .btn-3 span:hover {
-          color: rgba(250, 249, 250, 1);
-        }
-        .btn-3 span:before,
-        .btn-3 span:after {
-          position: absolute;
-          content: "";
-          left: 0;
-          bottom: 0;
-          background: hsla(0, 23%, 95%, 1.00);
-          transition: all 0.3s ease;
-        }
-        .btn-3 span:before {
-          width: 2px;
-          height: 0%;
-        }
-        .btn-3 span:after {
-          width: 0%;
-          height: 2px;
-        }
-        .btn-3 span:hover:before {
-          height: 100%;
-        }
-        .btn-3 span:hover:after {
-          width: 100%;
-        }
-      `}
-    </style>
+          {/* ✅ Scoped Styles */}
+          <style>
+            {`
+              .btn-3 {
+                background: linear-gradient(0deg, rgba(238, 0, 0, 1) 0%, rgba(251, 27, 2, 1) 100%);
+                width: 160px;
+                height: 50px;
+                line-height: 50px;
+                border: none;
+                border-radius: 12px;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                color: #fff;
+                font-weight: 600;
+                font-size: 16px;
+                transition: all 0.3s ease;
+              }
+              .btn-3 span {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 100%;
+              }
+              .btn-3:before,
+              .btn-3:after {
+                position: absolute;
+                content: "";
+                right: 0;
+                top: 0;
+                background: rgba(251, 2, 102, 1);
+                transition: all 0.3s ease;
+              }
+              .btn-3:before {
+                height: 0%;
+                width: 2px;
+              }
+              .btn-3:after {
+                width: 0%;
+                height: 2px;
+              }
+              .btn-3:hover {
+                background: transparent;
+                box-shadow: 0 0 15px rgba(251, 2, 110, 0.6);
+              }
+              .btn-3:hover:before {
+                height: 100%;
+              }
+              .btn-3:hover:after {
+                width: 100%;
+              }
+              .btn-3 span:hover {
+                color: rgba(252, 252, 252, 1);
+              }
+              .btn-3 span:before,
+              .btn-3 span:after {
+                position: absolute;
+                content: "";
+                left: 0;
+                bottom: 0;
+                background: hsla(320, 82%, 48%, 0.84);
+                transition: all 0.3s ease;
+              }
+              .btn-3 span:before {
+                width: 2px;
+                height: 0%;
+              }
+              .btn-3 span:after {
+                width: 0%;
+                height: 2px;
+              }
+              .btn-3 span:hover:before {
+                height: 100%;
+              }
+              .btn-3 span:hover:after {
+                width: 100%;
+              }
+            `}
+          </style>
 
-    <div className="flex flex-col md:flex-row justify-center gap-6">
-      <Link to="/shop">
-        <button className="btn-3">
-          <span>Start Shopping</span>
-        </button>
-      </Link>
+          <div className="flex flex-col md:flex-row justify-center gap-6">
+            <Link to="/shop">
+              <button className="btn-3">
+                <span>Start Shopping</span>
+              </button>
+            </Link>
 
-      <Link to="/contact">
-        <button className="btn-3">
-          <span>Contact Us</span>
-        </button>
-      </Link>
-    </div>
-  </div>
-</section>
-
-
+            <Link to="/contact">
+              <button className="btn-3">
+                <span>Contact Us</span>
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

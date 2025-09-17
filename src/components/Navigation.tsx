@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Menu, X, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-//import { useCart } from '@/hooks/useCart';
 import { useCart } from '@/context/CartContext';
 import floralLogo from '@/assets/floral-logo.png';
 
@@ -11,6 +10,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
   const { items, toggleCart } = useCart();
 
   const navLinks = [
@@ -26,7 +26,7 @@ const Navigation = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      window.location.href = `/shop?search=${encodeURIComponent(searchQuery)}`;
+      navigate(`/shop?search=${encodeURIComponent(searchQuery)}`); // 👈 SPA navigation
     }
   };
 
@@ -50,11 +50,12 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`font-medium transition-colors hover:text-primary ${
-                  location.pathname === link.path
-                    ? 'text-primary'
-                    : 'text-muted-foreground'
+                className={`relative font-medium transition-colors hover:text-primary ${
+                location.pathname === link.path
+                ? 'text-primary after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-100 after:transition-transform after:duration-300'
+                : 'text-muted-foreground after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100'
                 }`}
+
               >
                 {link.label}
               </Link>
@@ -139,11 +140,12 @@ const Navigation = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`font-medium py-2 px-1 transition-colors hover:text-primary ${
-                    location.pathname === link.path
-                      ? 'text-primary'
-                      : 'text-muted-foreground'
+                  className={`relative font-medium transition-colors hover:text-primary ${
+                  location.pathname === link.path
+                  ? 'text-primary after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-100 after:transition-transform after:duration-300'
+                  : 'text-muted-foreground after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100'
                   }`}
+
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}

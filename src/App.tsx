@@ -7,7 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Cart from "./components/Cart";
-import StickySocial from "./components/StickySocial"; // 👈 added
+import StickySocial from "./components/StickySocial";
+import ScrollToTop from "./components/ScrollToTop"; // 👈 added
 
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
@@ -32,6 +33,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        {/* 👇 ensures page scroll resets on route change */}
+        <ScrollToTop />  
+
         <div className="min-h-screen flex flex-col">
           <Navigation />
           <main className="flex-1">
