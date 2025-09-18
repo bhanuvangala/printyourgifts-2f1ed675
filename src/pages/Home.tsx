@@ -44,27 +44,35 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/shop">
                 <Button 
-                  size="lg" 
-                  className="bg-primary text-white px-8 py-4 text-lg rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:bg-primary/90 shadow-lg"
-                >
-                  Shop Now
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Button>
+  size="lg"
+  className="relative px-10 py-4 text-lg rounded-full font-bold text-white bg-gradient-to-r from-pink-500 via-pink-600 to-pink-500 overflow-hidden group shadow-lg animate-dance hover:shadow-2xl transition-all duration-300"
+>
+  <span className="relative z-10 flex items-center">
+    Shop Now
+    <ChevronRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+  </span>
+  <span className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/50 to-white/20 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700 ease-in-out"></span>
+  <span className="absolute inset-0 rounded-full bg-pink-400 opacity-20 blur-lg transition-opacity duration-300 group-hover:opacity-30"></span>
+</Button>
+
               </Link>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="text-lg px-8 py-4 rounded-full border-2 border-white text-white bg-transparent font-semibold transition-all duration-300 hover:bg-white hover:text-primary hover:shadow-glow"
-              >
-                Learn More
-              </Button>
+              {/* Learn More scrolls to Features */}
+              <a href="#features">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="text-lg px-8 py-4 rounded-full border-2 border-white text-white bg-transparent font-semibold transition-all duration-300 hover:bg-white hover:text-primary hover:shadow-glow"
+                >
+                  Learn More
+                </Button>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-secondary">
+      <section id="features" className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">

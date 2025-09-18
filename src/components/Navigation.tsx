@@ -2,13 +2,11 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Menu, X, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { useCart } from '@/context/CartContext';
 import floralLogo from '@/assets/floral-logo.png';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
   const { items, toggleCart } = useCart();
@@ -22,13 +20,6 @@ const Navigation = () => {
   ];
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/shop?search=${encodeURIComponent(searchQuery)}`); // 👈 SPA navigation
-    }
-  };
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
@@ -51,31 +42,26 @@ const Navigation = () => {
                 key={link.path}
                 to={link.path}
                 className={`relative font-medium transition-colors hover:text-primary ${
-                location.pathname === link.path
-                ? 'text-primary after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-100 after:transition-transform after:duration-300'
-                : 'text-muted-foreground after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100'
+                  location.pathname === link.path
+                    ? 'text-primary after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-100 after:transition-transform after:duration-300'
+                    : 'text-muted-foreground after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100'
                 }`}
-
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          {/* Search Bar - Desktop */}
+          {/* Search Icon - Desktop */}
           <div className="hidden lg:block">
-            <form onSubmit={handleSearch} className="flex items-center space-x-2">
-              <Input
-                type="search"
-                placeholder="Search products..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-64"
-              />
-              <Button type="submit" size="sm" variant="outline">
-                <Search className="h-4 w-4" />
-              </Button>
-            </form>
+            <Button
+              type="button"
+              size="sm"
+              variant="outline"
+              onClick={() => navigate("/shop")}
+            >
+              <Search className="h-4 w-4" />
+            </Button>
           </div>
 
           {/* Cart and Mobile Menu */}
@@ -122,18 +108,19 @@ const Navigation = () => {
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
               {/* Mobile Search */}
-              <form onSubmit={handleSearch} className="flex items-center space-x-2">
-                <Input
-                  type="search"
-                  placeholder="Search products..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="flex-1"
-                />
-                <Button type="submit" size="sm" variant="outline">
-                  <Search className="h-4 w-4" />
-                </Button>
-              </form>
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                onClick={() => {
+                  navigate("/shop");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center justify-center space-x-2"
+              >
+                <Search className="h-4 w-4" />
+                <span>Search Products</span>
+              </Button>
 
               {/* Mobile Navigation Links */}
               {navLinks.map((link) => (
@@ -141,11 +128,10 @@ const Navigation = () => {
                   key={link.path}
                   to={link.path}
                   className={`relative font-medium transition-colors hover:text-primary ${
-                  location.pathname === link.path
-                  ? 'text-primary after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-100 after:transition-transform after:duration-300'
-                  : 'text-muted-foreground after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100'
+                    location.pathname === link.path
+                      ? 'text-primary after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-100 after:transition-transform after:duration-300'
+                      : 'text-muted-foreground after:content-[""] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100'
                   }`}
-
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
