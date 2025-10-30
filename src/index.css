@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 77% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 77% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 77% 15%;
+
+    /* PrintYourGifts Pink & Floral Brand Colors */
+    --primary: 330 81% 60%;  /* Rose Pink #E91E63 */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 340 82% 70%;
+
+    --secondary: 350 100% 98%;
+    --secondary-foreground: 330 81% 60%;
+
+    --muted: 350 60% 96%;
+    --muted-foreground: 330 15% 45%;
+
+    --accent: 15 100% 70%;  /* Peach #FFB347 */
+    --accent-foreground: 330 81% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 350 30% 90%;
+    --input: 350 50% 95%;
+    --ring: 330 81% 60%;
+
+    /* Custom Pink & Floral Design Tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(330 81% 60%), hsl(340 82% 70%));
+    --gradient-peach: linear-gradient(135deg, hsl(15 100% 70%), hsl(25 100% 75%));
+    --gradient-floral: linear-gradient(135deg, hsl(330 81% 60%), hsl(15 100% 70%));
+    --shadow-elegant: 0 10px 30px -10px hsl(330 81% 60% / 0.3);
+    --shadow-glow: 0 0 40px hsl(340 82% 70% / 0.2);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Hero Button Variant */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg shadow-elegant transition-all duration-300 hover:scale-105 hover:shadow-glow;
+  }
+
+  /* Peach Accent Button */
+  .btn-gold {
+    @apply bg-gradient-to-r from-accent to-orange-300 text-accent-foreground px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-glow;
+  }
+
+  /* Floral Accent Button */
+  .btn-floral {
+    @apply bg-gradient-floral text-primary-foreground px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-glow;
+  }
+
+  /* Product Card */
+  .product-card {
+    @apply bg-card rounded-xl border border-border shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-elegant;
+  }
+
+  /* Fade-in Animation */
+  .fade-in {
+    @apply opacity-0 translate-y-4 transition-all duration-700 ease-out;
+  }
+
+  .fade-in.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Promotional Banner */
+  .promo-banner {
+    @apply bg-gradient-to-r from-accent to-yellow-400 text-accent-foreground py-3 text-center font-semibold animate-pulse;
+  }
+
+  /* Search Bar */
+  .search-bar {
+    @apply w-full px-4 py-3 rounded-lg border border-border bg-input focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-300;
+  }
+
+  /* Cart Slide Panel */
+  .cart-panel {
+    @apply fixed right-0 top-0 h-full w-96 bg-card border-l border-border shadow-2xl transform transition-transform duration-300 ease-in-out z-50;
+  }
+
+  .cart-panel.open {
+    @apply translate-x-0;
+  }
+
+  .cart-panel.closed {
+    @apply translate-x-full;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+@keyframes dance {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(-2deg); }
+  50% { transform: translateY(2px) rotate(2deg); }
+  75% { transform: translateY(-2px) rotate(-1deg); }
+}
+
+.animate-dance {
+  animation: dance 1s ease-in-out infinite;
+}
