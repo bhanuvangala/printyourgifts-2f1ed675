@@ -36,24 +36,31 @@ const Contact = () => {
             transition={{ duration: 0.7 }}
             className="bg-gradient-to-r from-pink-400 to-blue-400 rounded-2xl p-[1px] shadow-xl hover:shadow-2xl transition"
           >
-            <div className="bg-white rounded-2xl p-6">
+            <div className="bg-white rounded-2xl p-6 text-center">
               <h2 className="text-2xl font-bold mb-4 text-gray-900">
                 🎁 Reach Out Instantly
               </h2>
-              <p className="text-gray-700 mb-6 text-center">
+              <p className="text-gray-700 mb-6">
                 Skip the boring forms. Just click below and drop your details in our quick Google Form.
               </p>
-              <a
-                href="https://forms.gle/E4cRae5EXfCvvakB7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full block"
-              >
-                <Button className="w-full py-4 text-base bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white shadow-md hover:shadow-lg transition rounded-lg border border-pink-200">
-                  <Send className="mr-2 h-5 w-5" />
-                  Contact Us Now
-                </Button>
-              </a>
+              
+              <Button
+  asChild
+  className="mx-auto block px-8 py-4 text-base bg-gradient-to-r from-pink-500 to-pink-600 
+    hover:from-pink-600 hover:to-pink-700 text-white shadow-md hover:shadow-lg 
+    transition rounded-lg border border-pink-200"
+>
+  <a
+    href="https://forms.gle/E4cRae5EXfCvvakB7"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center"
+  >
+    <Send className="mr-2 h-5 w-5" />
+    Contact Us Now
+  </a>
+</Button>
+
             </div>
           </motion.div>
 
@@ -69,7 +76,7 @@ const Contact = () => {
                 icon: <Phone className="h-6 w-6 text-pink-500 flex-shrink-0" />,
                 title: "Phone",
                 desc: "Call us for immediate help",
-                detail: <a href="tel:+919391934534" className="text-pink-600 font-medium hover:underline">+91-9391934534</a>
+                detail: <a href="tel:+917799580188" className="text-pink-600 font-medium hover:underline">+91-7799580188</a>
               },
               {
                 icon: <Mail className="h-6 w-6 text-pink-500 flex-shrink-0" />,

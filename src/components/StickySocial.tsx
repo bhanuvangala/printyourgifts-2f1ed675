@@ -1,4 +1,4 @@
-import { Instagram } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const StickySocial = () => {
@@ -17,13 +17,24 @@ const StickySocial = () => {
 
       {/* WhatsApp */}
       <a
-        href="https://wa.me/919391934534"
+        href="https://wa.me/917799580188"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center w-12 h-12 rounded-full bg-green-600 text-white shadow-lg 
                    hover:bg-green-700 transition-transform hover:scale-110 animate-bounce-slow"
       >
         <FaWhatsapp className="h-6 w-6" />
+      </a>
+
+      {/* Facebook */}
+      <a
+        href="https://www.facebook.com/share/1abBM6ygZJ/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 text-white shadow-lg 
+                   hover:bg-blue-700 transition-transform hover:scale-110 animate-bounce-slow"
+      >
+        <Facebook className="h-6 w-6" />
       </a>
     </div>
   );

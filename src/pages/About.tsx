@@ -21,21 +21,17 @@ const About = () => {
     return () => observer.disconnect();
   }, []);
 
+  // ✅ Only Founder and Design Director
   const team = [
     {
-      name: 'Rajesh Patel',
+      name: 'Venkat Sadhu',
       role: 'Founder & CEO',
       bio: 'Passionate about technology and customer satisfaction. 10+ years in printing industry.',
     },
     {
-      name: 'Priya Sharma',
+      name: 'Shailaja Sadhu',
       role: 'Design Director',
       bio: 'Creative designer with expertise in personalization and visual storytelling.',
-    },
-    {
-      name: 'Amit Kumar',
-      role: 'Quality Manager',
-      bio: 'Ensures every product meets our high standards before reaching customers.',
     },
   ];
 
@@ -112,8 +108,8 @@ const About = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { icon: Users, number: '50,000+', label: 'Happy Customers' },
-              { icon: Heart, number: '200,000+', label: 'Gifts Created' },
+              { icon: Users, number: '1000+', label: 'Happy Customers' },
+              { icon: Heart, number: '2000+', label: 'Gifts Created' },
               { icon: Award, number: '4.9/5', label: 'Customer Rating' },
               { icon: Clock, number: '24-48hrs', label: 'Delivery Time' },
             ].map((stat, index) => (
@@ -148,7 +144,8 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {/* ✅ Only 2 team members now */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {team.map((member, index) => (
               <div
                 key={index}
@@ -217,11 +214,10 @@ const About = () => {
             personalized gifts today
           </p>
 
-          {/* ✅ Scoped Styles */}
           <style>
             {`
               .btn-3 {
-                background: linear-gradient(0deg, rgba(238, 0, 0, 1) 0%, rgba(251, 27, 2, 1) 100%);
+                background: linear-gradient(0deg, rgba(18, 245, 245, 1) 0%, rgba(34, 232, 242, 1) 100%);
                 width: 160px;
                 height: 50px;
                 line-height: 50px;
@@ -247,7 +243,7 @@ const About = () => {
                 content: "";
                 right: 0;
                 top: 0;
-                background: rgba(251, 2, 102, 1);
+                background: rgba(252, 248, 251, 1);
                 transition: all 0.3s ease;
               }
               .btn-3:before {
@@ -260,7 +256,7 @@ const About = () => {
               }
               .btn-3:hover {
                 background: transparent;
-                box-shadow: 0 0 15px rgba(251, 2, 110, 0.6);
+                box-shadow: 0 0 15px rgba(250, 246, 249, 0.6);
               }
               .btn-3:hover:before {
                 height: 100%;
@@ -277,7 +273,7 @@ const About = () => {
                 content: "";
                 left: 0;
                 bottom: 0;
-                background: hsla(320, 82%, 48%, 0.84);
+                background: hsla(320, 16%, 96%, 0.84);
                 transition: all 0.3s ease;
               }
               .btn-3 span:before {
